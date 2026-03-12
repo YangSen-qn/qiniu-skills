@@ -1,6 +1,6 @@
 # Qiniu Skills
 
-为 Claude Code 打造的七牛云 KODO 对象存储操作 Skill。
+七牛云操作的 Skills。
 
 ## 项目结构
 
@@ -82,12 +82,3 @@ git clone <repo-url> /path/to/qiniu-skills
 - "在七牛把 `my-bucket` 的 `old.txt` 重命名为 `new.txt`"
 - "七牛上复制 `src-bucket/file.jpg` 到 `dst-bucket`"
 - "把七牛这个文件改成低频存储"
-
-**CDN 操作**
-- "刷新七牛 CDN 缓存"
-- "七牛预热一下这批文件"
-
-**工具**
-- "用 qshell 解码这个 reqid: `xxxxx`"
-- "算一下 `./file.bin` 的 qetag"
-- "生成七牛 `my-bucket/private-file.zip` 的私有下载链接"

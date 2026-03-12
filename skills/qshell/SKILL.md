@@ -18,21 +18,23 @@ description: |
 
 ## 前置条件
 
-qshell 二进制保存在本 skill 目录下：
-- 路径：`<skill_base_dir>/bin/qshell`（skill_base_dir 即本 SKILL.md 所在目录）
-- 所有命令必须使用完整路径调用，如 `<skill_base_dir>/bin/qshell buckets`
-- 账号查看：`<skill_base_dir>/bin/qshell account`
-- 配置文件：`~/.qshell.json`
+配置文件：`~/.qshell.json`
 
-### qshell 未安装时
+### 使用策略
 
-如果 `<skill_base_dir>/bin/qshell` 不存在，阅读 `references/install.md` 按步骤自动下载最新版本到 `<skill_base_dir>/bin/` 目录。
+按以下优先级查找 qshell，**不要提前检查是否安装**，直接用 `qshell` 执行命令：
+
+1. **系统 PATH 中的 `qshell`**：直接执行 `qshell <子命令>`
+2. **skill 目录下的 `<skill_base_dir>/bin/qshell`**：如果第 1 步返回 command not found（exit code 127），改用完整路径重试
+3. **自动下载安装**：如果第 2 步也返回 command not found，阅读 `references/install.md` 下载安装到 `<skill_base_dir>/bin/`，然后重新执行
+
+一旦确定了可用路径，后续命令直接使用该路径，无需重复探测。
 
 ### 账号未配置时
 
-提示用户运行：
+如果命令返回 `bad token` / `unauthorized` / `401` 错误，提示用户运行：
 ```bash
-<skill_base_dir>/bin/qshell account <AccessKey> <SecretKey> <Name>
+qshell account <AccessKey> <SecretKey> <Name>
 ```
 
 ---
